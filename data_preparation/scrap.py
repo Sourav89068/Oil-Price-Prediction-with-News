@@ -3,11 +3,11 @@ import requests
 import re
 import pandas as pd
 
-def create_csv():
+def create_csv(url: str)->None:
     dates=[]
     texts=[]
     for i in range(1,641):
-        url="https://www.hydrocarbonprocessing.com/news?page="
+        url=url
         res = requests.get(url+str(i))
         rt=BeautifulSoup(res.content,"html.parser")
         length=len(rt.find_all("div",class_="news-link"))
